@@ -1,0 +1,19 @@
+/* Almanac — desktop notifications. */
+@import url("./core/alias.css");
+@import url("./core/tokens.css");
+@import url("./core/base.css");
+html:has(> body.DesktopToastContainer),
+html body.DesktopToastContainer { background: transparent !important; }
+html .DesktopToastContainer .DesktopToastBackground,
+html .DesktopToastContainer .DesktopToastTemplate { background: transparent !important; }
+/* ALMANAC notifications: a weather card sliding in on a breeze */
+html .DesktopToastContainer .DesktopToastPopup {
+    border-radius: 22px !important;
+    border: 1px solid rgba(255,255,255,.16) !important;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--al-sky-mid) 80%, black), color-mix(in srgb, var(--al-panel) 95%, transparent)) !important;
+    animation: al-breeze 700ms var(--mr-ease) backwards;
+}
+@keyframes al-breeze { from { opacity: 0; transform: translate(40px, -6px) rotate(2deg); } to { opacity: 1; transform: none; } }
+html .DesktopToastContainer .DesktopToastTemplate :is(.Header .Title,.GroupMessageUserName,.IngameTitle) { font-family: var(--al-serif) !important; font-size: 17px !important; font-weight: 600 !important; color: #fff !important; }
+html .DesktopToastContainer .DesktopToastTemplate :is(.StandardNotificationDescription,.GroupMessageBody,.StandardNotificationSubText) { color: rgba(255,255,255,.8) !important; }
+html .DesktopToastContainer .DesktopToastTemplate :is(.AppLogo,.StandardLogoDimensions), html .DesktopToastContainer .DesktopToastTemplate .AppLogo :is(.Container,img) { border-radius: 12px !important; overflow: hidden; }

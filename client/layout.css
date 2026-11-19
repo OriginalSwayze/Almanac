@@ -1,0 +1,113 @@
+/* ==========================================================================
+   ALMANAC — layout: an airy magazine page under the sky.
+     · Top: a tall masthead with the dateline centered
+     · Left: the game list as a slim icon rail that opens over the page on hover
+     · Center: the page as a reading column with open sky either side
+     · Right edge: Store / Library / Community / You set vertically, and the dock
+   ========================================================================== */
+html .OuterFrame > .TopBar { height: 78px !important; min-height: 78px !important; }
+
+/* ---- Rail + reading column -------------------------------------------- */
+html .Library > .Container {
+    position: relative;
+    padding: 6px 96px 24px 104px !important;
+    gap: 0 !important;
+    justify-content: center;
+}
+html .Library > .Container > .LeftListSizableContainer {
+    position: absolute !important;
+    left: 16px;
+    top: 6px;
+    bottom: 24px;
+    width: 72px !important;
+    min-width: 0 !important;
+    z-index: 25;
+    border-radius: var(--mr-r-lg) !important;
+    transition: width 420ms var(--mr-ease), box-shadow 420ms var(--mr-ease) !important;
+}
+html .Library > .Container > .LeftListSizableContainer:hover {
+    width: 380px !important;
+    box-shadow: var(--mr-glass-edge), 0 40px 90px -20px rgba(0, 0, 0, 0.7) !important;
+}
+html .Library > .Container > .LibraryWindowDivider { display: none !important; }
+/* Collapsed rail: icons only */
+html .LeftListSizableContainer:not(:hover) :is(.GameListEntryContainer > span, .SectionName, .SectionCount, .SectionRule,
+     .HomeBox .Bar .Label, .SearchBar, .SearchInput, .CollectionsButton, .ViewFiltersBar, .DownloadProgress) {
+    opacity: 0 !important;
+    transition: opacity 150ms;
+}
+html .LeftListSizableContainer :is(.GameListEntryContainer > span, .SectionName, .HomeBox .Bar .Label, .SearchBar, .SearchInput) {
+    transition: opacity 300ms 120ms;
+}
+html .LeftListSizableContainer:not(:hover) .ReactVirtualized__List .GameListEntryContainer .GameIcon { transform: scale(1.25); transition: transform 300ms var(--mr-ease); }
+html .LeftListSizableContainer:not(:hover) .HomeBox .Bar::after {
+    content: "";
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 18px; height: 18px; margin: -9px 0 0 -9px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff, var(--al-accent) 50%, var(--al-glow));
+    box-shadow: 0 0 12px var(--al-glow);
+}
+html .MainPanel {
+    flex: 1 1 auto;
+    max-width: 1320px;
+    margin: 0 auto !important;
+    border-radius: var(--mr-r-lg) !important;
+}
+
+/* ---- Vertical navigator on the right edge ----------------------------- */
+html .TopBar > .SuperNavBar {
+    position: fixed !important;
+    left: auto !important;
+    right: 14px !important;
+    top: 96px !important;
+    transform: none !important;
+    width: 62px !important;
+    height: auto !important;
+    z-index: 30;
+}
+html .SuperNavBar .SuperNav {
+    flex-direction: column !important;
+    align-items: center;
+    height: auto !important;
+    width: 62px !important;
+    margin: 0 !important;
+    padding: 14px 0 !important;
+    gap: 6px !important;
+    border-radius: 999px !important;
+}
+html .SuperNav > svg.Arrow { transform: rotate(90deg); }
+html .SuperNav .SuperNavMenu { height: auto !important; }
+html .SuperNav .SuperNavMenu > .MenuButton {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    height: auto !important;
+    width: 40px !important;
+    padding: 16px 0 !important;
+    justify-content: center;
+    font-family: var(--al-serif) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+}
+html .SuperNav .mr-nav-indicator { border-radius: 999px !important; left: 11px !important; }
+
+/* ---- Dock: a vertical pill under the navigator ------------------------ */
+html .BottomBar {
+    left: auto !important;
+    right: 14px !important;
+    bottom: 24px !important;
+    margin: 0 !important;
+    width: 62px !important;
+    height: auto !important;
+    flex-direction: column !important;
+    padding: 10px 0 !important;
+    border-radius: 999px !important;
+}
+html .BottomBar::before { border-radius: 999px !important; }
+html .BottomBar .DownloadStatus::before,
+html .BottomBar .DownloadStatus::after { display: none !important; }
+html .BottomBar :is(.AddGameButton, .DownloadStatus, .FriendsButton) :is(.Text, .Queue) { display: none !important; }
+html .BottomBar :is(.AddGameButton, .DownloadStatus, .FriendsButton) { border-radius: 999px !important; padding: 0 !important; width: 42px !important; justify-content: center; }

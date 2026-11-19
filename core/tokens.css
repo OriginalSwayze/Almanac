@@ -1,0 +1,63 @@
+/* ==========================================================================
+   ALMANAC — tokens. The palette is not fixed: js/main.js sets
+   html[data-al-phase] from the real clock and every color below follows
+   the sky (registered properties in base.css let them glide over a minute).
+   ========================================================================== */
+:root {
+    --al-sky-top: #050816;
+    --al-sky-mid: #0B1430;
+    --al-sky-bot: #18224A;
+    --al-glow: #5A6CFF;
+    --al-accent: #B9C6FF;
+    --al-panel: #0B1224;
+    --al-stars: 1;
+    --al-sun-x: 50%;
+    --al-sun-y: 120%;
+    --al-moon-x: 70%;
+    --al-moon-y: 20%;
+
+    --al-serif: "Sitka Banner", "Sitka Display", "Sitka Heading", Georgia, serif;
+    --al-serif-text: "Sitka Text", "Sitka Small", Georgia, serif;
+    --al-sans: "Segoe UI Variable Text", "Segoe UI", sans-serif;
+
+    --t-accent: var(--al-accent);
+    --t-accent-2: color-mix(in srgb, var(--al-glow) 70%, white);
+    --t-alert: #FF7A6E;
+    --t-bg: var(--al-sky-top);
+    --t-panel: var(--al-panel);
+    --t-ink: #10141F;
+    --t-fg: #F4F6FB;
+    --t-fg-2: #C9D0E0;
+    --t-fg-3: #93A0BC;
+    --t-fg-4: #5E6A86;
+    --t-line: rgba(255, 255, 255, 0.14);
+
+    --mr-r: var(--mr-setting-radius, 22px);
+    --mr-r-lg: calc(var(--mr-r) * 1.3);
+    --mr-r-md: calc(var(--mr-r) * 0.65);
+    --mr-r-sm: calc(var(--mr-r) * 0.45);
+    --mr-r-pill: 999px;
+    --mr-tint: var(--mr-setting-tint, 55%);
+    --mr-glass: color-mix(in srgb, var(--al-panel) var(--mr-tint), transparent);
+    --mr-glass-strong: color-mix(in srgb, var(--al-panel) min(100%, calc(var(--mr-tint) + 18%)), transparent);
+    --mr-blur: var(--mr-setting-blur, 26px);
+    --mr-glass-filter: blur(var(--mr-blur)) saturate(140%);
+    --mr-glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    --mr-font: var(--al-sans);
+    --mr-font-display: var(--al-serif);
+    --mr-grad: linear-gradient(135deg, color-mix(in srgb, var(--al-accent) 100%, white 15%), var(--al-glow));
+    --mr-grad-soft: linear-gradient(90deg, color-mix(in srgb, var(--al-accent) 22%, transparent), transparent 85%);
+    --mr-on-accent: #10141F;
+    --mr-t-3: 520ms;
+    --mr-t-4: 900ms;
+    --mr-spot: radial-gradient(var(--mr-spot-size) circle at var(--mr-mx, -999px) var(--mr-my, -999px), color-mix(in srgb, var(--al-glow) 14%, transparent), transparent 70%);
+}
+
+/* ---- The day, phase by phase ------------------------------------------ */
+html[data-al-phase="night"]     { --al-sky-top: #04060F; --al-sky-mid: #0A1230; --al-sky-bot: #17224A; --al-glow: #6B7CFF; --al-accent: #B9C6FF; --al-panel: #0A1022; --al-stars: 1; }
+html[data-al-phase="dawn"]      { --al-sky-top: #1B1F4A; --al-sky-mid: #8A4F7D; --al-sky-bot: #F2A36B; --al-glow: #FFB37A; --al-accent: #FFC09A; --al-panel: #1D1830; --al-stars: 0.35; }
+html[data-al-phase="morning"]   { --al-sky-top: #3D7BD6; --al-sky-mid: #79B2EC; --al-sky-bot: #CFE6F7; --al-glow: #FFF3C4; --al-accent: #FFD27A; --al-panel: #10284A; --al-stars: 0; }
+html[data-al-phase="noon"]      { --al-sky-top: #2F78E0; --al-sky-mid: #5AA3F0; --al-sky-bot: #A9D4FA; --al-glow: #FFFBE0; --al-accent: #FFE066; --al-panel: #0E2648; --al-stars: 0; }
+html[data-al-phase="afternoon"] { --al-sky-top: #3B6FC9; --al-sky-mid: #7FA8E0; --al-sky-bot: #F3D3A0; --al-glow: #FFD48A; --al-accent: #FFBF5A; --al-panel: #1A2A48; --al-stars: 0; }
+html[data-al-phase="dusk"]      { --al-sky-top: #23204F; --al-sky-mid: #A0456E; --al-sky-bot: #FF8A50; --al-glow: #FF9A5A; --al-accent: #FFA070; --al-panel: #1F1530; --al-stars: 0.25; }
+html[data-al-phase="evening"]   { --al-sky-top: #0D1233; --al-sky-mid: #29215A; --al-sky-bot: #5A3C7A; --al-glow: #9C7CFF; --al-accent: #C9B0FF; --al-panel: #120F28; --al-stars: 0.8; }

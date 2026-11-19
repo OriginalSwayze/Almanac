@@ -1,0 +1,20 @@
+/* ALMANAC — controls: soft pills and frosted dialogs */
+html .DialogButton { border-radius: 999px !important; font-weight: 600 !important; }
+html .DialogButton.Primary, html button.DialogButton.Primary {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--al-accent) 100%, white 20%), var(--al-glow)) !important;
+    color: #10141F !important;
+}
+html .GenericConfirmDialog, html .ModalPosition_Content > .DialogContent {
+    background: color-mix(in srgb, var(--al-panel) 88%, transparent) !important;
+    -webkit-backdrop-filter: blur(30px); backdrop-filter: blur(30px);
+    border-radius: 28px !important;
+}
+html .DialogHeader { font-size: 26px !important; }
+html .PagedSettingsDialog_PageListColumn .PagedSettingsDialog_Title {
+    background: none !important; -webkit-text-fill-color: #fff; color: #fff !important;
+    font-family: var(--al-serif) !important; font-style: italic; font-size: 30px !important;
+}
+html .PagedSettingsDialog_PageList .PagedSettingsDialog_PageListItem.Active { background: color-mix(in srgb, var(--al-accent) 22%, transparent) !important; }
+html .PagedSettingsDialog_PageList .PagedSettingsDialog_PageListItem.Active::before { background: var(--al-accent) !important; box-shadow: 0 0 10px var(--al-glow) !important; }
+html .PagedSettingsDialog .SettingsDialogSubHeader { color: var(--al-accent) !important; }
+html .Toggle.On .ToggleRail, html .Toggle[class*="On"] .ToggleRail { background: linear-gradient(90deg, var(--al-glow), var(--al-accent)) !important; }

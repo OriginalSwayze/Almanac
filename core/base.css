@@ -1,0 +1,38 @@
+/* ==========================================================================
+   ALMANAC — base. Registered color properties so the whole palette glides
+   from one phase of the day to the next instead of jumping.
+   ========================================================================== */
+@property --al-sky-top { syntax: "<color>"; inherits: true; initial-value: #04060F; }
+@property --al-sky-mid { syntax: "<color>"; inherits: true; initial-value: #0A1230; }
+@property --al-sky-bot { syntax: "<color>"; inherits: true; initial-value: #17224A; }
+@property --al-glow    { syntax: "<color>"; inherits: true; initial-value: #6B7CFF; }
+@property --al-accent  { syntax: "<color>"; inherits: true; initial-value: #B9C6FF; }
+@property --al-panel   { syntax: "<color>"; inherits: true; initial-value: #0A1022; }
+@property --al-stars   { syntax: "<number>"; inherits: true; initial-value: 1; }
+
+html {
+    transition: --al-sky-top 60s linear, --al-sky-mid 60s linear, --al-sky-bot 60s linear,
+                --al-glow 60s linear, --al-accent 60s linear, --al-panel 60s linear, --al-stars 60s linear;
+}
+html.al-instant { transition: none !important; }
+
+html, body { font-family: var(--al-sans) !important; color: var(--t-fg); -webkit-font-smoothing: antialiased; }
+::selection { background: color-mix(in srgb, var(--al-accent) 60%, transparent); color: #fff; }
+:where(:focus-visible) { outline: 2px solid var(--al-accent); outline-offset: 3px; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; background: transparent; }
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner { background: transparent; }
+::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.16); border: 3px solid transparent; border-radius: 99px; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background-color: color-mix(in srgb, var(--al-accent) 70%, transparent); }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+
+@keyframes mr-fade-up {
+    from { opacity: 0; transform: translateY(calc(14px * var(--mr-motion))); filter: blur(calc(6px * var(--mr-motion))); }
+    to   { opacity: 1; transform: none; filter: none; }
+}
+@keyframes al-drift { from { transform: translateX(-8%); } to { transform: translateX(8%); } }
+@keyframes al-clouds { from { background-position: 0 0, 0 0, 0 0; } to { background-position: 1400px 0, -900px 0, 600px 0; } }
+@keyframes al-twinkle { 0%, 100% { opacity: calc(var(--al-stars) * 1); } 50% { opacity: calc(var(--al-stars) * 0.6); } }
+@keyframes al-rain { to { background-position: -80px 640px, -40px 420px; } }
+@keyframes al-snow { to { background-position: 60px 900px, -40px 600px, 20px 400px; } }
+@keyframes al-greet-out { to { opacity: 0; visibility: hidden; } }

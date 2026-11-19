@@ -1,0 +1,155 @@
+/* ==========================================================================
+   ALMANAC — the look: sky-tinted frosted glass, newspaper-masthead serif,
+   generous air. Every accent is the current sky's light.
+   ========================================================================== */
+
+/* ===== Type ============================================================ */
+html :is(.UpdatesContainer .Name, .ShowcaseHeader .Focusable, .ShowcaseHeader .DialogDropDown_CurrentDisplay,
+         .AppDetailsSection .SectionHeader, h2.SectionHeader, .DialogHeader) {
+    font-family: var(--al-serif) !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    text-transform: none !important;
+    letter-spacing: -0.01em !important;
+    color: #FFFFFF !important;
+}
+html :is(.UpdatesContainer .Name, .ShowcaseHeader .Focusable, .ShowcaseHeader .DialogDropDown_CurrentDisplay) { font-size: 26px !important; }
+html :is(.AppDetailsSection .SectionHeader, h2.SectionHeader) { font-size: 20px !important; background: transparent !important; }
+html .AppDetailsSection .SectionHeader::before { display: none !important; }
+html :is(.PlayBar .PlayBarLabel, .UpdatesContainer .EventTime, .LeftListSizableContainer .SearchBar .MenuHeader .ViewName) {
+    font-family: var(--al-sans) !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    color: var(--al-accent) !important;
+}
+
+/* ===== Logo: a small almanac mark ===================================== */
+html .RootMenuBar .RootMenuButton .SteamButton::before {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff, var(--al-accent) 45%, var(--al-glow) 100%);
+    box-shadow: 0 0 14px var(--al-glow);
+    animation: none;
+}
+html .RootMenuBar .RootMenuButton .SteamButton::after {
+    content: "Almanac";
+    font-family: var(--al-serif);
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0;
+    color: #fff;
+}
+html .RootMenuBar .RootMenuButton { color: rgba(255, 255, 255, 0.7) !important; font-size: 12.5px !important; }
+html .RootMenuBar .RootMenuButton:hover { background: rgba(255, 255, 255, 0.12) !important; color: #fff !important; }
+
+/* ===== Masthead dateline (the readout) ================================ */
+html .od-hud {
+    position: absolute !important;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 !important;
+    pointer-events: none;
+    white-space: nowrap;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+html .od-hud .al-date { font-family: var(--al-serif); font-size: 24px; font-weight: 600; color: #fff; line-height: 1.1; }
+html .od-hud .al-sub { font-family: var(--al-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--al-accent); margin-top: 4px; }
+@media (max-width: 1200px) { html .od-hud .al-sub { display: none; } }
+
+/* ===== Top-right controls: clean pills ================================ */
+html .TitleBarControls .Button,
+html .TitleBarControls .AccountMenu { background: rgba(255, 255, 255, 0.1) !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12) !important; }
+html .TitleBarControls .Button:hover,
+html .TitleBarControls .AccountMenu:hover { background: rgba(255, 255, 255, 0.2) !important; }
+html .TitleBarControls .AccountMenu .WalletBalance { background: transparent !important; color: var(--al-accent) !important; }
+
+/* ===== Panels ========================================================== */
+html .Library > .Container > div:not(.MainPanel):first-child,
+html .MainPanel {
+    background: var(--mr-glass) !important;
+    -webkit-backdrop-filter: var(--mr-glass-filter);
+    backdrop-filter: var(--mr-glass-filter);
+    box-shadow: var(--mr-glass-edge), 0 30px 80px -30px color-mix(in srgb, var(--al-sky-top) 80%, black) !important;
+}
+
+/* ===== Game list ======================================================= */
+html .HomeBox .Bar .Label { font-family: var(--al-serif) !important; font-size: 17px !important; font-weight: 600 !important; text-transform: none !important; }
+html .HomeBox .Bar.Selected { background: color-mix(in srgb, var(--al-accent) 18%, transparent) !important; box-shadow: none !important; }
+html .ReactVirtualized__List .SectionName { font-family: var(--al-serif) !important; font-size: 15px !important; font-weight: 600 !important; letter-spacing: 0 !important; text-transform: none !important; color: #fff !important; }
+html .ReactVirtualized__List .GameListEntryContainer > span { font-size: 13.5px !important; }
+html body .ReactVirtualized__List .Container.Selected.Selected:has(> .GameListEntryContainer) {
+    background: color-mix(in srgb, var(--al-accent) 22%, transparent) !important;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--al-accent) 35%, transparent) !important;
+}
+html .ReactVirtualized__List .Container.Selected:has(> .GameListEntryContainer)::before { background: var(--al-accent) !important; box-shadow: 0 0 10px var(--al-glow) !important; }
+
+/* ===== Home ============================================================ */
+html .UpdatesContainer .HoversEnabled { border-radius: var(--mr-r-md) !important; }
+html .LibraryItemBox { box-shadow: 0 18px 34px -18px color-mix(in srgb, var(--al-sky-top) 90%, black) !important; }
+html .LibraryItemBox:hover {
+    transform: translateY(calc(-8px * var(--mr-motion))) !important;
+    box-shadow: 0 28px 46px -18px color-mix(in srgb, var(--al-sky-top) 90%, black), 0 0 0 1px color-mix(in srgb, var(--al-accent) 50%, transparent) !important;
+}
+/* The sky's light falls on covers from the sun's side */
+html .LibraryItemBox::after {
+    background: linear-gradient(var(--al-light-angle, 135deg), color-mix(in srgb, var(--al-glow) 35%, transparent), transparent 55%) !important;
+    mix-blend-mode: soft-light !important;
+    opacity: 1 !important;
+}
+
+/* ===== Game page ======================================================= */
+html .AppDetailsMain .TopCapsule { border-radius: var(--mr-r-lg) var(--mr-r-lg) 0 0 !important; }
+html .AppDetailsMain .PlayBar > .InnerContainer { border-radius: 999px !important; }
+html .PlayButton.ButtonChild {
+    border-radius: 999px !important;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--al-accent) 100%, white 20%), var(--al-glow)) !important;
+    animation: none !important;
+    box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--al-glow) 70%, transparent) !important;
+}
+html .PlayButton.ButtonChild .ButtonText {
+    font-family: var(--al-serif) !important;
+    font-size: 19px !important;
+    font-weight: 600 !important;
+    font-style: italic;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: #10141F !important;
+}
+html .PlayButton.ButtonChild svg, html .PlayButton.ButtonChild svg path { fill: #10141F !important; }
+html .PlayBar :is(.LastPlayedInfo, .PlayBarDetailLabel) { font-family: var(--al-serif-text) !important; font-size: 14px !important; color: #fff !important; }
+html .LinksSection .LinkInner { border-radius: 999px !important; background: rgba(255, 255, 255, 0.1) !important; color: #fff !important; }
+html .LinksSection .LinkInner:hover { background: color-mix(in srgb, var(--al-accent) 30%, transparent) !important; }
+html .AppDetailsSection:not(.LinksSection) > .Panel,
+html .PartnerEvent.Event { background: rgba(255, 255, 255, 0.05) !important; border-radius: var(--mr-r-md) !important; }
+html .PartnerEventFeaturedHeader { background: color-mix(in srgb, var(--al-accent) 30%, transparent) !important; color: #fff !important; }
+html .ProgressBar .Unlocked, html .ProgressBar [class*="Unlocked"], html .PlayBar .DetailsProgressBar {
+    background: linear-gradient(90deg, var(--al-glow), var(--al-accent)) !important;
+    border-radius: 99px !important;
+}
+
+/* ===== Startup: a greeting for the time of day ========================= */
+html .od-boot.al-greet {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    pointer-events: none;
+    background: linear-gradient(180deg, var(--al-sky-top), var(--al-sky-mid) 60%, var(--al-sky-bot));
+    animation: al-greet-out 1s ease 2400ms forwards;
+}
+html .od-boot.al-greet .g1 { font-family: var(--al-serif); font-size: 64px; font-weight: 600; color: #fff; animation: mr-fade-up 1.2s var(--mr-ease) 200ms backwards; }
+html .od-boot.al-greet .g2 { font-family: var(--al-serif-text); font-style: italic; font-size: 20px; color: rgba(255, 255, 255, 0.8); animation: mr-fade-up 1.2s var(--mr-ease) 600ms backwards; }
+html .od-boot.al-greet .g3 { margin-top: 10px; font-size: 11px; letter-spacing: 0.24em; font-weight: 700; text-transform: uppercase; color: var(--al-accent); animation: mr-fade-up 1.2s var(--mr-ease) 900ms backwards; }
+html .UpdatesContainer .EventTime { text-transform: none !important; letter-spacing: 0.04em !important; font-size: 12px !important; overflow: visible !important; padding-left: 2px; }

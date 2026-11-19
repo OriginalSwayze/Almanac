@@ -1,0 +1,29 @@
+/* Almanac — the "Sign in to Steam" window. */
+@import url("./core/alias.css");
+@import url("./core/tokens.css");
+@import url("./core/base.css");
+@import url("./core/backdrop.css");
+html .Login, html .Login.AnimatedBackground, html .LoginAnimatedBackground,
+html .Login .LoginStatusContainer, html .Login .SpinnerLoaderContainer { background: transparent !important; }
+html .Login.AnimatedBackground::before, html .LoginAnimatedBackground::after, html .Login video { display: none !important; }
+html .Login .SpinnerLoaderContainer { position: relative; }
+html .Login .SpinnerLoaderContainer > img { opacity: 0 !important; }
+/* ALMANAC sign-in: the sky, a turning sun dial, a greeting */
+html .Login .SpinnerLoaderContainer::before {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0 70%, color-mix(in srgb, var(--al-accent) 90%, white));
+    -webkit-mask: radial-gradient(circle, transparent 0 50px, #000 51px 54px, transparent 55px);
+    mask: radial-gradient(circle, transparent 0 50px, #000 51px 54px, transparent 55px);
+    animation: mr-spin 2.4s linear infinite;
+}
+html .Login .SpinnerLoaderContainer::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff, var(--al-accent) 50%, var(--al-glow));
+    box-shadow: 0 0 30px var(--al-glow);
+}
+html .Login .LoadingStatus, html .Login .LoadingStatus > .LoginStatus { font-family: var(--al-serif-text) !important; font-style: italic; color: rgba(255,255,255,.85) !important; }
+html .Login .ProgressBar { background: linear-gradient(90deg, var(--al-glow), var(--al-accent)) !important; border-radius: 99px !important; }
+html .Login .Avatar img { border-radius: 50% !important; box-shadow: 0 0 0 2px rgba(255,255,255,.6), 0 0 30px var(--al-glow); }
+html .Login .UserContainer > .PersonaName { font-family: var(--al-serif) !important; font-size: 26px !important; color: #fff !important; }

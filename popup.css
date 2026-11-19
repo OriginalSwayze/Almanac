@@ -1,0 +1,28 @@
+/* Almanac — context menus and dropdown menus (each is its own window). */
+@import url("./core/alias.css");
+@import url("./core/tokens.css");
+@import url("./core/base.css");
+html, body { background: transparent !important; }
+html body .contextMenu.ContextMenuPosition,
+html body .contextMenu { background: transparent !important; border: none !important; box-shadow: none !important; }
+/* ALMANAC menus: frosted cards that float down like a leaf */
+html .contextMenu .contextMenuContents, html .contextMenu .NotificationsMenu {
+    border-radius: 18px !important;
+    border: 1px solid rgba(255,255,255,.14) !important;
+    background: color-mix(in srgb, var(--al-panel) 92%, transparent) !important;
+    padding: 8px !important;
+    transform-origin: top center;
+    animation: al-menu 380ms var(--mr-ease) backwards;
+}
+@keyframes al-menu { from { opacity: 0; transform: translateY(-8px) rotate(-1.5deg); } to { opacity: 1; transform: none; } }
+html .contextMenu .contextMenuContents .contextMenuItem {
+    border-radius: 10px !important; padding: 8px 14px !important; color: #E8ECF6 !important; background: transparent !important;
+    font-family: var(--al-sans) !important; font-size: 13.5px !important; text-transform: none !important; letter-spacing: 0 !important;
+}
+html .contextMenu .contextMenuContents .contextMenuItem:not(.disabled):is(:hover,:focus,.active) { background: color-mix(in srgb, var(--al-accent) 24%, transparent) !important; color: #fff !important; }
+html .contextMenu .contextMenuContents .contextMenuItem.disabled { opacity: .4; }
+html .contextMenu .contextMenuContents hr.Separator, html .contextMenu hr { border: none !important; height: 1px !important; margin: 6px 10px !important; background: rgba(255,255,255,.12) !important; }
+html .contextMenu .contextMenuContents .contextMenuItem.ContextMenuAction:is(.Play,.Launch) { background: linear-gradient(135deg, var(--al-accent), var(--al-glow)) !important; color: #10141F !important; font-weight: 700 !important; }
+html .contextMenu .contextMenuContents .contextMenuItem.ContextMenuAction svg :is(path,polygon,rect,circle) { fill: currentColor !important; }
+html .NotificationsMenu .NotificationMenuItem { border-radius: 12px !important; }
+html .NotificationsMenu .NotificationMenuItem:hover { background: rgba(255,255,255,.08) !important; }
