@@ -1,6 +1,6 @@
 # Almanac
 
-**A sky that follows your real clock.** A [Millennium](https://steambrew.app) theme for the Steam client.
+**A sky that follows your real clock.** A Steam client theme for [Beyond Steam](https://github.com/OriginalSwayze/Beyond-Steam) and [Millennium](https://steambrew.app).
 
 ![Almanac: library](media/library.gif)
 
@@ -19,13 +19,14 @@
 
 ## Install
 
-1. Install [Millennium](https://steambrew.app).
-2. Find **Almanac** in the Millennium theme browser, or download this repository into `Steam/millennium/themes/Almanac`.
-3. Open **Steam → Millennium → Themes** and pick **Almanac**.
+- **With [Beyond Steam](https://github.com/OriginalSwayze/Beyond-Steam) (easiest):** in Steam press **Ctrl+Shift+B**, open
+  **Get more** and install **Almanac**.
+- **By hand:** download **Almanac.zip** from the [latest release](https://github.com/OriginalSwayze/Almanac/releases/latest) and unzip
+  it into `%APPDATA%\Beyond Steam\themes\Almanac` (Beyond Steam) or `Steam\millennium\themes\Almanac` (Millennium).
 
 ## Options
 
-Open **Millennium → Themes → Almanac** to change:
+In Beyond Steam's **Theme options** tab (or **Millennium → Themes → Almanac**) you can change:
 
 Weather · Sky (follow the clock / always day / always night) · Clouds · Corner radius · Glass tint · Density · What's New · Dock labels · Readout · Startup screen · Motion · Cover hover · Cursor light · Privacy
 
